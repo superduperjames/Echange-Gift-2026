@@ -501,7 +501,21 @@
       display: none !important;
 
     }
+.button-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
 
+.button-row .main-button {
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .button-row {
+    flex-direction: column;
+  }
+}
 
     /* MOBILE */
 
@@ -689,13 +703,25 @@
       </div>
 
 
-      <button
-        id="revealButton"
-        class="main-button"
-        type="submit"
-      >
-        Reveal
-      </button>
+      <div class="button-row">
+
+  <button
+    id="saveButton"
+    class="main-button"
+    type="submit"
+  >
+    Save Name and Passkey
+  </button>
+
+  <button
+    id="setupRevealButton"
+    class="main-button"
+    type="button"
+  >
+    Reveal
+  </button>
+
+</div>
 
 
     </form>
@@ -891,7 +917,11 @@
         "revealForm"
       );
 
-
+const setupRevealButton =
+  document.getElementById(
+    "setupRevealButton"
+  );
+    
     const setupName =
       document.getElementById(
         "setupName"
@@ -1849,7 +1879,30 @@
       );
 
     }
+/*
+ * ==========================================================
+ * SWITCH TO REVEAL FROM SETUP SCREEN
+ * ==========================================================
+ */
 
+setupRevealButton.addEventListener(
+  "click",
+  () => {
+
+    const name =
+      setupName.value.trim();
+
+    /*
+     * Carry over the name if one was already entered.
+     */
+
+    showRevealMode(
+      name
+    );
+
+  }
+);
+    
   </script>
 
 </body>
