@@ -7,7 +7,6 @@
   <title>Exchange Gift</title>
 
   <style>
-
     :root {
       --bg: #f7f4ef;
       --card: #ffffff;
@@ -56,250 +55,185 @@
         sans-serif;
     }
 
-
     /* CARD */
 
     .card {
-
       width: min(100%, 560px);
-
       padding: 60px 58px;
-
       text-align: center;
-
       background: var(--card);
-
       border: 1px solid var(--border);
-
       border-radius: 28px;
 
       box-shadow:
         0 20px 70px rgba(0, 0, 0, 0.08);
     }
 
-
     /* HEADER */
 
     .gift {
-
       font-size: 72px;
-
       line-height: 1;
-
       margin-bottom: 22px;
-
     }
-
 
     h1 {
-
       margin: 0 0 16px;
-
       font-size: clamp(38px, 7vw, 56px);
-
       line-height: 1.05;
-
       letter-spacing: -2px;
-
     }
-
 
     .intro {
-
       margin: 0 auto 40px;
-
       max-width: 460px;
-
       color: var(--muted);
-
       font-size: 19px;
-
       line-height: 1.5;
-
     }
-
 
     /* FORM */
 
     .field {
-
       margin-bottom: 22px;
-
       text-align: left;
-
     }
-
 
     label {
-
       display: block;
-
       margin-bottom: 9px;
-
       font-size: 17px;
-
       font-weight: 700;
-
     }
 
-
     input {
-
       width: 100%;
-
       height: 64px;
-
       padding: 0 19px;
 
       border: 1px solid var(--border);
-
       border-radius: 14px;
-
       outline: none;
 
       background: #ffffff;
-
       color: var(--text);
 
       font-size: 19px;
 
       transition: 0.2s ease;
-
     }
 
-
     input:focus {
-
       border-color: var(--accent);
 
       box-shadow:
         0 0 0 4px rgba(196, 61, 61, 0.10);
-
     }
 
-
-    /* MAIN BUTTON */
+    /* BUTTONS */
 
     .main-button {
-
       width: 100%;
-
       height: 64px;
-
       margin-top: 6px;
 
       border: 0;
-
       border-radius: 14px;
 
       background: var(--accent);
-
       color: #ffffff;
 
       font-size: 18px;
-
       font-weight: 800;
 
       cursor: pointer;
 
       transition: 0.2s ease;
-
     }
-
 
     .main-button:hover {
-
       background: var(--accent-dark);
-
       transform: translateY(-1px);
-
     }
-
 
     .main-button:disabled {
-
       opacity: 0.6;
-
       cursor: wait;
-
       transform: none;
-
     }
 
+    /* SETUP BUTTON ROW */
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .button-row .main-button {
+      flex: 1;
+    }
+
+    .secondary-button {
+      background: #f1eeea;
+      color: #333333;
+    }
+
+    .secondary-button:hover {
+      background: #e8e3dc;
+      color: #333333;
+    }
 
     /* MESSAGE */
 
     .message {
-
       min-height: 24px;
-
       margin-top: 18px;
 
       color: var(--muted);
 
       font-size: 15px;
-
       line-height: 1.5;
-
     }
-
 
     .message.error {
-
       color: var(--error);
-
     }
-
 
     .message.success {
-
       color: var(--success);
-
     }
-
 
     /* FORGOT PASSKEY */
 
     .forgot-button {
-
       margin-top: 20px;
-
       padding: 8px;
 
       border: 0;
-
       background: transparent;
 
       color: var(--accent);
 
       font-size: 14px;
-
       font-weight: 700;
 
       cursor: pointer;
-
     }
-
 
     .forgot-button:hover {
-
       text-decoration: underline;
-
     }
-
 
     /* CHANGE PARTICIPANT */
 
     .change-button {
-
       display: none;
 
       margin: 12px auto 0;
-
       padding: 6px;
 
       border: 0;
-
       background: transparent;
 
       color: #999999;
@@ -307,98 +241,68 @@
       font-size: 13px;
 
       cursor: pointer;
-
     }
-
 
     .change-button:hover {
-
       color: var(--accent);
-
     }
-
 
     /* RESULT */
 
     .result {
-
       display: none;
 
       margin-top: 34px;
-
       padding: 32px 22px;
 
       border-radius: 20px;
 
       background: #fff7f3;
-
       border: 1px solid #f1d8cf;
-
     }
-
 
     .result.show {
-
       display: block;
-
     }
 
-
     .result-label {
-
       margin-bottom: 10px;
 
       color: var(--muted);
 
       font-size: 13px;
-
       font-weight: 800;
 
       text-transform: uppercase;
-
       letter-spacing: 1.5px;
-
     }
 
-
     .assigned {
-
       color: var(--accent-dark);
 
       font-size: 36px;
-
       font-weight: 900;
-
       line-height: 1.2;
 
       word-break: break-word;
-
     }
 
-
     .result-note {
-
       margin-top: 18px;
 
       color: #999999;
 
       font-size: 13px;
-
       line-height: 1.5;
-
     }
-
 
     /* MODAL */
 
     .modal {
-
       position: fixed;
-
       inset: 0;
 
       display: none;
-
       place-items: center;
 
       padding: 20px;
@@ -406,19 +310,13 @@
       background: rgba(20, 20, 20, 0.48);
 
       z-index: 100;
-
     }
-
 
     .modal.show {
-
       display: grid;
-
     }
 
-
     .modal-card {
-
       width: min(100%, 460px);
 
       padding: 34px;
@@ -429,157 +327,105 @@
 
       box-shadow:
         0 25px 80px rgba(0, 0, 0, 0.22);
-
     }
-
 
     .modal-card h2 {
-
       margin: 0 0 10px;
-
       font-size: 28px;
-
     }
 
-
     .modal-card p {
-
       margin: 0 0 25px;
 
       color: var(--muted);
 
       font-size: 14px;
-
       line-height: 1.55;
-
     }
 
-
     .modal-button {
-
       width: 100%;
-
       height: 56px;
 
       border: 0;
-
       border-radius: 12px;
 
       background: var(--accent);
-
       color: #ffffff;
 
       font-size: 16px;
-
       font-weight: 800;
 
       cursor: pointer;
-
     }
 
-
     .cancel-button {
-
       margin-top: 10px;
 
       background: #f1eeea;
-
       color: #333333;
-
     }
-
 
     .cancel-button:hover {
-
       background: #e8e3dc;
-
     }
 
+    /* HIDDEN */
 
     .hidden {
-
       display: none !important;
-
     }
-.button-row {
-  display: flex;
-  gap: 12px;
-  width: 100%;
-}
-
-.button-row .main-button {
-  flex: 1;
-}
-
-@media (max-width: 480px) {
-  .button-row {
-    flex-direction: column;
-  }
-}
 
     /* MOBILE */
 
     @media (max-width: 600px) {
-
       body {
         padding: 14px;
       }
 
       .card {
-
         padding: 42px 24px;
-
         border-radius: 22px;
-
       }
 
       .gift {
-
         font-size: 58px;
-
       }
 
       .intro {
-
         font-size: 17px;
-
       }
 
       input,
       .main-button {
-
         height: 58px;
-
       }
 
       .assigned {
-
         font-size: 30px;
-
       }
-
     }
 
+    @media (max-width: 480px) {
+      .button-row {
+        flex-direction: column;
+      }
+    }
   </style>
-
 </head>
 
 
 <body>
 
-
   <main class="card">
-
 
     <div class="gift">
       🎁
     </div>
 
-
     <h1>
       Exchange Gift
     </h1>
-
 
     <p
       id="intro"
@@ -589,13 +435,11 @@
     </p>
 
 
-    <!-- ======================================================
+    <!-- =====================================================
          SETUP FORM
-         ====================================================== -->
+         ===================================================== -->
 
-    <form
-      id="setupForm"
-    >
+    <form id="setupForm">
 
       <div class="field">
 
@@ -648,21 +492,32 @@
       </div>
 
 
-      <button
-        id="saveButton"
-        class="main-button"
-        type="submit"
-      >
-        Save Name and Passkey
-      </button>
+      <div class="button-row">
 
+        <button
+          id="saveButton"
+          class="main-button"
+          type="submit"
+        >
+          Save Name and Passkey
+        </button>
+
+        <button
+          id="setupRevealButton"
+          class="main-button secondary-button"
+          type="button"
+        >
+          Reveal
+        </button>
+
+      </div>
 
     </form>
 
 
-    <!-- ======================================================
+    <!-- =====================================================
          REVEAL FORM
-         ====================================================== -->
+         ===================================================== -->
 
     <form
       id="revealForm"
@@ -703,33 +558,18 @@
       </div>
 
 
-      <div class="button-row">
-
-  <button
-    id="saveButton"
-    class="main-button"
-    type="submit"
-  >
-    Save Name and Passkey
-  </button>
-
-  <button
-    id="setupRevealButton"
-    class="main-button"
-    type="button"
-  >
-    Reveal
-  </button>
-
-</div>
-
+      <button
+        id="revealButton"
+        class="main-button"
+        type="submit"
+      >
+        Reveal
+      </button>
 
     </form>
 
 
-    <!-- ======================================================
-         FORGOT PASSKEY
-         ====================================================== -->
+    <!-- FORGOT PASSKEY -->
 
     <button
       id="forgotButton"
@@ -740,9 +580,7 @@
     </button>
 
 
-    <!-- ======================================================
-         CHANGE PARTICIPANT
-         ====================================================== -->
+    <!-- CHANGE PARTICIPANT -->
 
     <button
       id="changeButton"
@@ -760,9 +598,7 @@
     ></div>
 
 
-    <!-- ======================================================
-         RESULT
-         ====================================================== -->
+    <!-- RESULT -->
 
     <section
       id="result"
@@ -785,13 +621,12 @@
 
     </section>
 
-
   </main>
 
 
-  <!-- ========================================================
+  <!-- =======================================================
        FORGOT PASSKEY MODAL
-       ======================================================== -->
+       ======================================================= -->
 
   <div
     id="forgotModal"
@@ -805,15 +640,13 @@
       </h2>
 
       <p>
-        Enter your name and the email address you registered
-        for the exchange. We'll send your saved passkey to
-        that email address.
+        Enter your name and the email address registered
+        for the exchange. We'll send your saved passkey
+        to that email address.
       </p>
 
 
-      <form
-        id="forgotForm"
-      >
+      <form id="forgotForm">
 
         <div class="field">
 
@@ -864,7 +697,6 @@
           Cancel
         </button>
 
-
       </form>
 
 
@@ -874,7 +706,6 @@
         aria-live="polite"
       ></div>
 
-
     </div>
 
   </div>
@@ -882,18 +713,10 @@
 
   <script>
 
-
     /*
      * ==========================================================
-     * GOOGLE APPS SCRIPT URL
+     * GOOGLE APPS SCRIPT WEB APP URL
      * ==========================================================
-     *
-     * REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL.
-     *
-     * Example:
-     *
-     * https://script.google.com/macros/s/XXXXXXXX/exec
-     *
      */
 
     const API_URL =
@@ -911,122 +734,114 @@
         "setupForm"
       );
 
-
     const revealForm =
       document.getElementById(
         "revealForm"
       );
 
-const setupRevealButton =
-  document.getElementById(
-    "setupRevealButton"
-  );
-    
     const setupName =
       document.getElementById(
         "setupName"
       );
-
 
     const setupPasskey =
       document.getElementById(
         "setupPasskey"
       );
 
-
     const setupPasskeyAgain =
       document.getElementById(
         "setupPasskeyAgain"
       );
-
-
-    const revealName =
-      document.getElementById(
-        "revealName"
-      );
-
-
-    const revealPasskey =
-      document.getElementById(
-        "revealPasskey"
-      );
-
 
     const saveButton =
       document.getElementById(
         "saveButton"
       );
 
+    const setupRevealButton =
+      document.getElementById(
+        "setupRevealButton"
+      );
+
+    const revealName =
+      document.getElementById(
+        "revealName"
+      );
+
+    const revealPasskey =
+      document.getElementById(
+        "revealPasskey"
+      );
 
     const revealButton =
       document.getElementById(
         "revealButton"
       );
 
-
     const forgotButton =
       document.getElementById(
         "forgotButton"
       );
-
 
     const changeButton =
       document.getElementById(
         "changeButton"
       );
 
-
     const message =
       document.getElementById(
         "message"
       );
-
 
     const result =
       document.getElementById(
         "result"
       );
 
-
     const assignedName =
       document.getElementById(
         "assignedName"
       );
-
 
     const intro =
       document.getElementById(
         "intro"
       );
 
-
     const forgotModal =
       document.getElementById(
         "forgotModal"
       );
-
 
     const forgotForm =
       document.getElementById(
         "forgotForm"
       );
 
-
     const forgotSubmit =
       document.getElementById(
         "forgotSubmit"
       );
-
 
     const forgotMessage =
       document.getElementById(
         "forgotMessage"
       );
 
-
     const closeModal =
       document.getElementById(
         "closeModal"
+      );
+
+    const forgotName =
+      document.getElementById(
+        "forgotName"
+      );
+
+    const forgotEmail =
+      document.getElementById(
+        "forgotEmail"
       );
 
 
@@ -1046,7 +861,6 @@ const setupRevealButton =
 
       message.className =
         "message " + type;
-
     }
 
 
@@ -1060,7 +874,6 @@ const setupRevealButton =
 
       forgotMessage.className =
         "message " + type;
-
     }
 
 
@@ -1069,9 +882,8 @@ const setupRevealButton =
      * GOOGLE APPS SCRIPT REQUEST
      * ==========================================================
      *
-     * JSONP allows GitHub Pages to communicate with the
-     * Google Apps Script web app without CORS problems.
-     *
+     * JSONP is used so GitHub Pages can communicate
+     * with Google Apps Script.
      */
 
     function request(data) {
@@ -1096,12 +908,8 @@ const setupRevealButton =
 
           const params =
             new URLSearchParams({
-
               ...data,
-
-              callback:
-                callbackName
-
+              callback: callbackName
             });
 
 
@@ -1113,8 +921,9 @@ const setupRevealButton =
             setTimeout(
               () => {
 
-                if (finished)
+                if (finished) {
                   return;
+                }
 
                 finished = true;
 
@@ -1142,7 +951,6 @@ const setupRevealButton =
             ];
 
             script.remove();
-
           }
 
 
@@ -1150,8 +958,9 @@ const setupRevealButton =
             callbackName
           ] = response => {
 
-            if (finished)
+            if (finished) {
               return;
+            }
 
             finished = true;
 
@@ -1160,15 +969,15 @@ const setupRevealButton =
             resolve(
               response
             );
-
           };
 
 
           script.onerror =
             () => {
 
-              if (finished)
+              if (finished) {
                 return;
+              }
 
               finished = true;
 
@@ -1179,7 +988,6 @@ const setupRevealButton =
                   "Could not contact Google Apps Script."
                 )
               );
-
             };
 
 
@@ -1195,63 +1003,56 @@ const setupRevealButton =
 
         }
       );
-
     }
 
 
     /*
      * ==========================================================
-     * SWITCH TO REVEAL MODE
+     * SHOW REVEAL MODE
      * ==========================================================
      */
 
-    function showRevealMode(
-      name
-    ) {
+    function showRevealMode(name = "") {
 
       setupForm.classList.add(
         "hidden"
       );
 
-
       revealForm.classList.remove(
         "hidden"
       );
 
-
       intro.textContent =
         "Enter your name and passkey to reveal the person you're giving a gift to.";
-
 
       forgotButton.style.display =
         "inline-block";
 
-
       changeButton.style.display =
         "block";
 
-
       if (name) {
-
         revealName.value =
           name;
-
       }
 
+      revealPasskey.value =
+        "";
 
       setMessage("");
-
 
       result.classList.remove(
         "show"
       );
 
+      assignedName.textContent =
+        "";
     }
 
 
     /*
      * ==========================================================
-     * SWITCH TO SETUP MODE
+     * SHOW SETUP MODE
      * ==========================================================
      */
 
@@ -1261,37 +1062,33 @@ const setupRevealButton =
         "hidden"
       );
 
-
       revealForm.classList.add(
         "hidden"
       );
 
-
       intro.textContent =
         "Set up your name and passkey to access your exchange gift.";
-
 
       forgotButton.style.display =
         "inline-block";
 
-
       changeButton.style.display =
         "none";
 
-
       setMessage("");
-
 
       result.classList.remove(
         "show"
       );
 
+      assignedName.textContent =
+        "";
     }
 
 
     /*
      * ==========================================================
-     * SAVE PARTICIPANT NAME + PASSKEY
+     * SAVE NAME + PASSKEY
      * ==========================================================
      */
 
@@ -1305,10 +1102,8 @@ const setupRevealButton =
         const name =
           setupName.value.trim();
 
-
         const passkey =
           setupPasskey.value;
-
 
         const passkeyAgain =
           setupPasskeyAgain.value;
@@ -1322,7 +1117,6 @@ const setupRevealButton =
           );
 
           return;
-
         }
 
 
@@ -1334,13 +1128,10 @@ const setupRevealButton =
           );
 
           return;
-
         }
 
 
-        if (
-          passkey.length < 4
-        ) {
+        if (passkey.length < 4) {
 
           setMessage(
             "Your passkey must be at least 4 characters.",
@@ -1348,7 +1139,6 @@ const setupRevealButton =
           );
 
           return;
-
         }
 
 
@@ -1363,33 +1153,17 @@ const setupRevealButton =
           );
 
           return;
-
-        }
-
-
-        if (
-          API_URL.includes(
-            "PASTE_YOUR"
-          )
-        ) {
-
-          setMessage(
-            "Please connect the Google Apps Script URL first.",
-            "error"
-          );
-
-          return;
-
         }
 
 
         saveButton.disabled =
           true;
 
+        setupRevealButton.disabled =
+          true;
 
         saveButton.textContent =
           "Saving...";
-
 
         setMessage(
           "Saving your name and passkey..."
@@ -1425,13 +1199,8 @@ const setupRevealButton =
             );
 
             return;
-
           }
 
-
-          /*
-           * Remember this browser's participant.
-           */
 
           localStorage.setItem(
             "exchangeGiftName",
@@ -1439,21 +1208,9 @@ const setupRevealButton =
           );
 
 
-          /*
-           * Switch to Reveal mode.
-           */
-
           showRevealMode(
             name
           );
-
-
-          /*
-           * Automatically fill the participant name.
-           */
-
-          revealName.value =
-            name;
 
 
           setMessage(
@@ -1462,13 +1219,20 @@ const setupRevealButton =
           );
 
 
+          setTimeout(
+            () => {
+              revealPasskey.focus();
+            },
+            0
+          );
+
         }
 
 
         catch (error) {
 
           setMessage(
-            "The gift list is temporarily unavailable. Please check your Apps Script deployment.",
+            "The gift list is temporarily unavailable. Please try again.",
             "error"
           );
 
@@ -1480,11 +1244,46 @@ const setupRevealButton =
           saveButton.disabled =
             false;
 
+          setupRevealButton.disabled =
+            false;
 
           saveButton.textContent =
             "Save Name and Passkey";
-
         }
+
+      }
+    );
+
+
+    /*
+     * ==========================================================
+     * SETUP SCREEN → REVEAL SCREEN
+     * ==========================================================
+     */
+
+    setupRevealButton.addEventListener(
+      "click",
+      () => {
+
+        const name =
+          setupName.value.trim();
+
+        showRevealMode(
+          name
+        );
+
+        setTimeout(
+          () => {
+
+            if (name) {
+              revealPasskey.focus();
+            } else {
+              revealName.focus();
+            }
+
+          },
+          0
+        );
 
       }
     );
@@ -1506,12 +1305,14 @@ const setupRevealButton =
         const name =
           revealName.value.trim();
 
-
         const passkey =
           revealPasskey.value;
 
 
-        if (!name || !passkey) {
+        if (
+          !name ||
+          !passkey
+        ) {
 
           setMessage(
             "Please enter your name and passkey.",
@@ -1519,38 +1320,18 @@ const setupRevealButton =
           );
 
           return;
-
-        }
-
-
-        if (
-          API_URL.includes(
-            "PASTE_YOUR"
-          )
-        ) {
-
-          setMessage(
-            "Please connect the Google Apps Script URL first.",
-            "error"
-          );
-
-          return;
-
         }
 
 
         revealButton.disabled =
           true;
 
-
         revealButton.textContent =
           "Checking...";
-
 
         setMessage(
           "Checking your passkey..."
         );
-
 
         result.classList.remove(
           "show"
@@ -1583,8 +1364,13 @@ const setupRevealButton =
             );
 
             return;
-
           }
+
+
+          localStorage.setItem(
+            "exchangeGiftName",
+            name
+          );
 
 
           assignedName.textContent =
@@ -1596,9 +1382,7 @@ const setupRevealButton =
           );
 
 
-          setMessage(
-            ""
-          );
+          setMessage("");
 
         }
 
@@ -1618,10 +1402,8 @@ const setupRevealButton =
           revealButton.disabled =
             false;
 
-
           revealButton.textContent =
             "Reveal";
-
         }
 
       }
@@ -1642,15 +1424,34 @@ const setupRevealButton =
           "show"
         );
 
-
         setForgotMessage("");
 
-
-        document
-          .getElementById(
-            "forgotName"
+        const currentName =
+          revealForm.classList.contains(
+            "hidden"
           )
-          .focus();
+            ? setupName.value.trim()
+            : revealName.value.trim();
+
+
+        if (currentName) {
+          forgotName.value =
+            currentName;
+        }
+
+
+        setTimeout(
+          () => {
+
+            if (currentName) {
+              forgotEmail.focus();
+            } else {
+              forgotName.focus();
+            }
+
+          },
+          0
+        );
 
       }
     );
@@ -1701,46 +1502,31 @@ const setupRevealButton =
 
 
         const name =
-          document
-            .getElementById(
-              "forgotName"
-            )
-            .value
-            .trim();
-
+          forgotName.value.trim();
 
         const email =
-          document
-            .getElementById(
-              "forgotEmail"
-            )
-            .value
-            .trim();
+          forgotEmail.value.trim();
 
 
         if (
-          API_URL.includes(
-            "PASTE_YOUR"
-          )
+          !name ||
+          !email
         ) {
 
           setForgotMessage(
-            "Please connect the Google Apps Script URL first.",
+            "Please enter your name and email address.",
             "error"
           );
 
           return;
-
         }
 
 
         forgotSubmit.disabled =
           true;
 
-
         forgotSubmit.textContent =
           "Sending...";
-
 
         setForgotMessage(
           "Checking your information..."
@@ -1771,12 +1557,11 @@ const setupRevealButton =
               "success"
             );
 
-          }
-
-          else {
+          } else {
 
             setForgotMessage(
-              data.message,
+              data.message ||
+              "We couldn't verify those details.",
               "error"
             );
 
@@ -1800,10 +1585,8 @@ const setupRevealButton =
           forgotSubmit.disabled =
             false;
 
-
           forgotSubmit.textContent =
             "Email My Passkey";
-
         }
 
       }
@@ -1812,7 +1595,7 @@ const setupRevealButton =
 
     /*
      * ==========================================================
-     * CHANGE PARTICIPANT
+     * USE DIFFERENT PARTICIPANT
      * ==========================================================
      */
 
@@ -1828,18 +1611,14 @@ const setupRevealButton =
         revealName.value =
           "";
 
-
         revealPasskey.value =
           "";
-
 
         setupName.value =
           "";
 
-
         setupPasskey.value =
           "";
-
 
         setupPasskeyAgain.value =
           "";
@@ -1852,6 +1631,9 @@ const setupRevealButton =
           "You can now set up another participant."
         );
 
+
+        setupName.focus();
+
       }
     );
 
@@ -1861,9 +1643,8 @@ const setupRevealButton =
      * INITIAL PAGE LOAD
      * ==========================================================
      *
-     * If this browser already completed setup, automatically
-     * show Reveal mode.
-     *
+     * If this browser has previously registered/revealed,
+     * take them directly to the Reveal screen.
      */
 
     const savedName =
@@ -1878,31 +1659,12 @@ const setupRevealButton =
         savedName
       );
 
+    } else {
+
+      showSetupMode();
+
     }
-/*
- * ==========================================================
- * SWITCH TO REVEAL FROM SETUP SCREEN
- * ==========================================================
- */
 
-setupRevealButton.addEventListener(
-  "click",
-  () => {
-
-    const name =
-      setupName.value.trim();
-
-    /*
-     * Carry over the name if one was already entered.
-     */
-
-    showRevealMode(
-      name
-    );
-
-  }
-);
-    
   </script>
 
 </body>
